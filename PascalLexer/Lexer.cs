@@ -3,11 +3,13 @@ using Antlr4.Runtime;
 
 namespace PascalLexer
 {
-    public class Lexer
+    public static class Lexer
     {
         public static IList<IToken> Lex(string input)
         {
-            return new CommonTokenStream(new GrammarLexer(new AntlrInputStream(input))).GetTokens();
+            var tokens = new CommonTokenStream(new Grammar(new AntlrInputStream(input)));
+            tokens.Fill();
+            return tokens.GetTokens();
         }
     }
 }
