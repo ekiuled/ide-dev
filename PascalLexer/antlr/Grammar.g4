@@ -1,13 +1,22 @@
 lexer grammar Grammar;
 
 Number: Sign? ( UnsignedInteger | UnsignedReal );
-fragment Sign: '+' | '-';
+fragment Sign: Plus | Minus;
 fragment UnsignedInteger: DigitSequence 
-                         | '$' HexSequence
-                         | '&' OctalSequence
-                         | '%' BinSequence; 
-fragment UnsignedReal: DigitSequence ('.' DigitSequence)? ScaleFactor?;
-fragment ScaleFactor: ('E' | 'e') Sign? DigitSequence;  
+                         | Dollar HexSequence
+                         | Ampersand OctalSequence
+                         | Percent BinSequence; 
+fragment UnsignedReal: DigitSequence (Dot DigitSequence)? ScaleFactor?;
+fragment ScaleFactor: E Sign? DigitSequence;  
+
+fragment Plus: '+';
+fragment Minus: '-';
+fragment Dollar: '$';
+fragment Ampersand: '&';
+fragment Percent: '%';
+fragment Dot: '.';
+fragment E: 'E' | 'e';
+
 fragment DigitSequence: Digit+;
 fragment BinSequence: Bin+;
 fragment HexSequence: Hex+;
@@ -24,4 +33,8 @@ fragment Underscore: '_';
 CharacterString: (QuotedString | ControlString)+;
 fragment QuotedString: Quote (~['\n] | Quote Quote)* Quote;
 fragment Quote: '\'';
-fragment ControlString: '#' UnsignedReal;
+fragment ControlString: Hash UnsignedReal;
+fragment Hash: '#';
+
+Symbol: Letter | Digit | Hex;
+Whitespace: [ \n\t\r];
