@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PascalLexer", "PascalLexer\PascalLexer.csproj", "{DF162973-EDBE-43FA-9B3B-2D3775F0F092}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PascalLexer.Tests", "PascalLexer.Tests\PascalLexer.Tests.csproj", "{07DB1BB0-3024-4FA0-BE9C-FBE57D7B3830}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pascal", "Pascal\Pascal.csproj", "{E3428A8B-44B9-4278-B52F-44207E1C9795}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,13 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DF162973-EDBE-43FA-9B3B-2D3775F0F092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF162973-EDBE-43FA-9B3B-2D3775F0F092}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF162973-EDBE-43FA-9B3B-2D3775F0F092}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF162973-EDBE-43FA-9B3B-2D3775F0F092}.Release|Any CPU.Build.0 = Release|Any CPU
-		{07DB1BB0-3024-4FA0-BE9C-FBE57D7B3830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{07DB1BB0-3024-4FA0-BE9C-FBE57D7B3830}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{07DB1BB0-3024-4FA0-BE9C-FBE57D7B3830}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{07DB1BB0-3024-4FA0-BE9C-FBE57D7B3830}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3428A8B-44B9-4278-B52F-44207E1C9795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3428A8B-44B9-4278-B52F-44207E1C9795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3428A8B-44B9-4278-B52F-44207E1C9795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3428A8B-44B9-4278-B52F-44207E1C9795}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
