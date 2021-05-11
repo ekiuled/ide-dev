@@ -3,9 +3,9 @@ lexer grammar Grammar;
 Number: Sign? ( UnsignedInteger | UnsignedReal );
 fragment Sign: Plus | Minus;
 fragment UnsignedInteger: DigitSequence 
-                         | Dollar HexSequence
-                         | Ampersand OctalSequence
-                         | Percent BinSequence; 
+                        | Dollar HexSequence
+                        | Ampersand OctalSequence
+                        | Percent BinSequence; 
 fragment UnsignedReal: DigitSequence (Dot DigitSequence)? ScaleFactor?;
 fragment ScaleFactor: E Sign? DigitSequence;  
 
@@ -35,6 +35,17 @@ fragment QuotedString: Quote (~['\n] | Quote Quote)* Quote;
 fragment Quote: '\'';
 fragment ControlString: Hash UnsignedReal;
 fragment Hash: '#';
+
+Comment: SingleComment | MultilineComment;
+fragment SingleComment: DoubleSlash ~[\n\r]*;
+fragment DoubleSlash: '//';
+fragment MultilineComment: LCurlyBrace NestedComment RCurlyBrace
+                         | LBraceStar NestedComment RBraceStar;
+fragment NestedComment: (MultilineComment | .)*?;
+fragment LCurlyBrace: '{';
+fragment RCurlyBrace: '}';
+fragment LBraceStar: '(*';
+fragment RBraceStar: '*)';
 
 Symbol: Letter | Digit | Hex;
 Whitespace: [ \n\t\r];

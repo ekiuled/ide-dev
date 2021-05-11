@@ -1,5 +1,6 @@
 Number=1
 Identifier=2
 CharacterString=3
-Symbol=4
-Whitespace=5
+Comment=4
+Symbol=5
+Whitespace=6

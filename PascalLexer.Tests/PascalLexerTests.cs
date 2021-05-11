@@ -69,5 +69,29 @@ namespace PascalLexer.Tests
                 "'''", "'\\''", "'the string starts here \n and continues here'"
             }, TokenType.CharacterString);
         }
+
+        [Test]
+        public void TestComments()
+        {
+            AssertTokenType(new List<string>
+            {
+                "(* This is an old style comment *)",
+                "{  This is a Turbo Pascal comment }",
+                "// This is a Delphi comment. All is ignored till the end of the line. ",
+                "{  \n My beautiful function  \n returns an interesting result. \n }",
+                "{ Comment 1 (* comment 2 *) }",
+                "(* Comment 1 { comment 2 } *)",
+                "{ comment 1 // Comment 2 }",
+                "(* comment 1 // Comment 2 *)",
+                "// comment 1 (* comment 2 *)  ",
+                "// comment 1 { comment 2 } "
+            }, TokenType.Comment);
+            AssertNotTokenType(new List<string>
+            {
+                " // Valid comment { No longer valid comment !! \n } ",
+                "{ comment 1  (* comment 2 *   }",
+                "// comment 1 { comment 2"
+            }, TokenType.Comment);
+        }
     }
 }
