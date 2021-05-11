@@ -48,4 +48,9 @@ fragment LBraceStar: '(*';
 fragment RBraceStar: '*)';
 
 Symbol: Letter | Digit | Hex;
-Whitespace: [ \n\t\r];
+Whitespace: [ \n\t\r]+;
+Semicolon: ';';
+LBrace: '(';
+RBrace: ')';
+Eop: '.';
+Error: .+?;
