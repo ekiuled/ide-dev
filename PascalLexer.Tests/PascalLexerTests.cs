@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 
@@ -14,20 +13,19 @@ namespace PascalLexer.Tests
                 Lexer.Lex(input).Select(t => t.Type)));
         }
 
+        private static void AssertTokenTypes(string input, IEnumerable<int> tokenTypes)
+        {
+            CollectionAssert.AreEqual(
+                tokenTypes,
+                Lexer.Lex(input).Select(t => t.Type));
+        }
+
+
         private static void AssertNotTokenType(List<string> inputs, int tokenType)
         {
-            inputs.ForEach(input =>
-            {
-                try
-                {
-                    CollectionAssert.AreNotEqual(
-                        new[] {tokenType, TokenType.Eof},
-                        Lexer.Lex(input).Select(t => t.Type));
-                }
-                catch (ArgumentException)
-                {
-                }
-            });
+            inputs.ForEach(input => CollectionAssert.AreNotEqual(
+                new[] {tokenType, TokenType.Eof},
+                Lexer.Lex(input).Select(t => t.Type)));
         }
 
         [Test]
@@ -88,10 +86,31 @@ namespace PascalLexer.Tests
             }, TokenType.Comment);
             AssertNotTokenType(new List<string>
             {
-                " // Valid comment { No longer valid comment !! \n } ",
-                "{ comment 1  (* comment 2 *   }",
-                "// comment 1 { comment 2"
+                " // Valid comment { No longer valid comment !! \n } "
             }, TokenType.Comment);
+        }
+
+        [Test]
+        public void TestProgramExample()
+        {
+            AssertTokenTypes(@"{
+           Online Pascal Compiler.
+               Code, Compile, Run and Debug Pascal program online.
+               Write your code in this editor and press ""Run"" button to execute it.
+        }
+
+        program Hello;
+        begin
+            writeln ('Hello World') // Hello!
+        end.", new[]
+            {
+                TokenType.Comment, TokenType.Whitespace,
+                TokenType.Identifier, TokenType.Whitespace, TokenType.Identifier, TokenType.Semicolon,
+                TokenType.Whitespace, TokenType.Identifier,
+                TokenType.Whitespace, TokenType.Identifier, TokenType.Whitespace, TokenType.LBrace,
+                TokenType.CharacterString, TokenType.RBrace, TokenType.Whitespace, TokenType.Comment,
+                TokenType.Whitespace, TokenType.Identifier, TokenType.Eop, TokenType.Eof
+            });
         }
     }
 }
