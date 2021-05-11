@@ -27,5 +27,17 @@ namespace PascalLexer.Tests
                 new[] {TokenType.Identifier, TokenType.Eof},
                 Lexer.Lex(input).Select(t => t.Type)));
         }
+
+        [Test]
+        public void TestCharacterStrings()
+        {
+            new List<string>
+            {
+                "''", "''''", "'This is a pascal string'", "'A tabulator character: '#9' is easy to embed'",
+                "'the string starts here'#13#10'   and continues here'"
+            }.ForEach(input => CollectionAssert.AreEqual(
+                new[] {TokenType.CharacterString, TokenType.Eof},
+                Lexer.Lex(input).Select(t => t.Type)));
+        }
     }
 }

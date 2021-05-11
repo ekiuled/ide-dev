@@ -20,3 +20,8 @@ fragment Bin: [0-1];
 Identifier: (Letter | Underscore) (Letter | Digit | Underscore)*;
 fragment Letter: [a-zA-Z];
 fragment Underscore: '_';
+
+CharacterString: (QuotedString | ControlString)+;
+fragment QuotedString: Quote (~['\n] | Quote Quote)* Quote;
+fragment Quote: '\'';
+fragment ControlString: '#' UnsignedReal;

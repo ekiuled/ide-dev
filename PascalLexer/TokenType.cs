@@ -4,6 +4,7 @@ namespace PascalLexer
     {
         public const int Number = Grammar.Number;
         public const int Identifier = Grammar.Identifier;
+        public const int CharacterString = Grammar.CharacterString;
         public const int Eof = Grammar.Eof;
     }
 }
