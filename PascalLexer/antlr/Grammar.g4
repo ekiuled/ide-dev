@@ -16,3 +16,7 @@ fragment Digit: [0-9];
 fragment Hex: [0-9a-fA-F];
 fragment Octal: [0-7];
 fragment Bin: [0-1];
+
+Identifier: (Letter | Underscore) (Letter | Digit | Underscore)*;
+fragment Letter: [a-zA-Z];
+fragment Underscore: '_';

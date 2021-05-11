@@ -16,5 +16,16 @@ namespace PascalLexer.Tests
                 new[] {TokenType.Number, TokenType.Eof},
                 Lexer.Lex(input).Select(t => t.Type)));
         }
+
+        [Test]
+        public void TestIdentifiers()
+        {
+            new List<string>
+            {
+                "_", "______", "a", "asd_asdnlUUUUbebnn1232313_", "_123", "g112"
+            }.ForEach(input => CollectionAssert.AreEqual(
+                new[] {TokenType.Identifier, TokenType.Eof},
+                Lexer.Lex(input).Select(t => t.Type)));
+        }
     }
 }
