@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from /home/cthfvrl/Code/hw/ide-dev/Pascal/antlr/PascalParser.g4 by ANTLR 4.9.1
+// Generated from /home/cthfvrl/MSE/code/ide-dev/Spring/src/Spring/src/antlr/PascalParser.g4 by ANTLR 4.9.1
 
 // Unreachable code detected
 #pragma warning disable 0162

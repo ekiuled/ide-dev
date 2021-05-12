@@ -51,7 +51,7 @@ factor: LBrace expression RBrace
 functionCall: Identifier actualParameterList?;
 actualParameterList: LBrace (expression (Comma expression)*)? RBrace;
 
-unsignedConstant: UnsignedInteger | UnsignedReal | CharacterString | Nil;
+unsignedConstant: Number | CharacterString | Nil;
 
 setConstructor: LBracket setGroup (Comma setGroup)* RBracket;
 setGroup: expression (Dots expression)?;

@@ -71,9 +71,6 @@ fragment RCurlyBrace: '}';
 fragment LBraceStar: '(*';
 fragment RBraceStar: '*)';
 
-Symbol: Letter | Digit | Hex;
-Whitespace: [ \n\t\r]+ -> channel(Whitespaces);
-
 Semicolon: ';';
 Colon: ':';
 LBrace: '(';
@@ -140,4 +137,6 @@ Identifier: (Letter | Underscore) (Letter | Digit | Underscore)*;
 fragment Letter: [a-zA-Z];
 fragment Underscore: '_';
 
+Symbol: Letter | Digit | Hex;
+Whitespace: [ \n\t\r]+ -> channel(Whitespaces);
 Error: .+?;
