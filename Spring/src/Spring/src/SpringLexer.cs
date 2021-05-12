@@ -1,21 +1,33 @@
-using System.Collections.Generic;
 using Antlr4.Runtime;
 using JetBrains.ReSharper.Psi.Parsing;
 using JetBrains.Text;
 
 namespace JetBrains.ReSharper.Plugins.Spring
 {
-    public struct SpringLexerState
+    public class SpringLexerState
     {
-        public IToken Token;
-        public int Type;
-        public int Channel;
-        public int Column;
-        public int Line;
-        public string Text;
-        public bool HitEof;
-        public int CurrentMode;
-        public Stack<int> ModeStack;
+        public readonly IToken Token;
+        public readonly int Type;
+        public readonly int Channel;
+        public readonly int Column;
+        public readonly int Line;
+        public readonly string Text;
+        public readonly bool HitEof;
+        public readonly int CurrentMode;
+        public readonly int[] ModeStack;
+
+        public SpringLexerState(Lexer lexer)
+        {
+            Token = lexer.Token;
+            Type = lexer.Type;
+            Channel = lexer.Channel;
+            Column = lexer.Column;
+            Line = lexer.Line;
+            Text = lexer.Text;
+            HitEof = lexer.HitEOF;
+            CurrentMode = lexer.CurrentMode;
+            ModeStack = lexer.ModeStack?.ToArray();
+        }
     }
 
     public class SpringLexer : ILexer<SpringLexerState>
@@ -32,27 +44,18 @@ namespace JetBrains.ReSharper.Plugins.Spring
         public void Start()
         {
             Advance();
+            CurrentPosition = new SpringLexerState(_lexer);
         }
 
         public void Advance()
         {
             _currentToken = _lexer.NextToken();
+            CurrentPosition = new SpringLexerState(_lexer);
         }
 
         public SpringLexerState CurrentPosition
         {
-            get => new SpringLexerState
-            {
-                Token = _lexer.Token,
-                Type = _lexer.Type,
-                Channel = _lexer.Channel,
-                Column = _lexer.Column,
-                Line = _lexer.Line,
-                Text = _lexer.Text,
-                HitEof = _lexer.HitEOF,
-                CurrentMode = _lexer.CurrentMode,
-                ModeStack = _lexer.ModeStack
-            };
+            get => new SpringLexerState(_lexer);
             set
             {
                 _lexer.Token = value.Token;
@@ -64,7 +67,7 @@ namespace JetBrains.ReSharper.Plugins.Spring
                 _lexer.HitEOF = value.HitEof;
                 _lexer.CurrentMode = value.CurrentMode;
                 _lexer.ModeStack.Clear();
-                foreach (var mode in value.ModeStack)
+                foreach (var mode in value.ModeStack ?? new int[] { })
                 {
                     _lexer.ModeStack.Push(mode);
                 }
