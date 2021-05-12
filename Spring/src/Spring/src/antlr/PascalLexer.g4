@@ -99,21 +99,21 @@ fragment Ge: '>=';
 fragment Eq: '=';
 fragment Neq: '<>';
 In: I N;
-fragment Is: I S;
+Is: I S;
 
 AddingOperator: Plus | Minus | Or | Xor;
-fragment Or: O R;
-fragment Xor: X O R;
+Or: O R;
+Xor: X O R;
 
 MultiplicationOperator: Mult | Divide | Div | Mod | And | Shl | Shr | As;
 fragment Mult: '*';
 fragment Divide: '/';
-fragment Div: D I V;
-fragment Mod: M O D;
-fragment And: A N D;
-fragment Shl: S H L;
-fragment Shr: S H R;
-fragment As: A S;
+Div: D I V;
+Mod: M O D;
+And: A N D;
+Shl: S H L;
+Shr: S H R;
+As: A S;
 
 Nil: N I L;
 Begin: B E G I N;
