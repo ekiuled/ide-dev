@@ -38,7 +38,9 @@ namespace JetBrains.ReSharper.Plugins.Spring
                 var parser = new PascalParser(new CommonTokenStream(
                     new PascalLexer(new AntlrInputStream(_myLexer.Buffer.GetText()))));
                 parser.AddParseListener(new SpringParserListener(builder));
+                parser.AddErrorListener(new SpringErrorListener(builder));
                 parser.program();
+                
 
                 builder.Done(fileMark, SpringFileNodeType.Instance, null);
                 return (IFile) builder.BuildTree();
