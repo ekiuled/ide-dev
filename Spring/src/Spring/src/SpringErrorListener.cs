@@ -16,10 +16,7 @@ namespace JetBrains.ReSharper.Plugins.Spring
         public void SyntaxError(TextWriter output, IRecognizer recognizer, IToken offendingSymbol, int line,
             int charPositionInLine, string msg, RecognitionException e)
         {
-            _builder.Error("Line " + line +
-                           ", position " + charPositionInLine +
-                           ", token " + offendingSymbol +
-                           ": " + msg);
+            _builder.Error("[" + line + ":" + charPositionInLine + "] " + msg);
         }
     }
 }
