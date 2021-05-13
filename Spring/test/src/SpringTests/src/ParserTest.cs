@@ -10,9 +10,23 @@ namespace JetBrains.ReSharper.Plugins.SpringTests
     {
         protected override string RelativeTestDataPath => "parser";
 
-        [TestCase("test01")]
+        [TestCase("Pascal")]
         [Test]
         public void Test1(string filename)
+        {
+            DoOneTest(filename);
+        }
+
+        [TestCase("Pascal2")]
+        [Test]
+        public void Test2(string filename)
+        {
+            DoOneTest(filename);
+        }
+
+        [TestCase("Pascal3")]
+        [Test]
+        public void Test3(string filename)
         {
             DoOneTest(filename);
         }
