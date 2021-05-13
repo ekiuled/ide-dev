@@ -49,7 +49,7 @@ namespace JetBrains.ReSharper.Plugins.Spring
 
         public void Advance()
         {
-            _currentToken = _lexer.NextToken();
+            _currentToken = _lexer.HitEOF ? null : _lexer.NextToken();
             CurrentPosition = new SpringLexerState(_lexer);
         }
 

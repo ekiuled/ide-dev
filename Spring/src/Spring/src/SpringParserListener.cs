@@ -21,7 +21,7 @@ namespace JetBrains.ReSharper.Plugins.Spring
             do
             {
                 _builder.AdvanceLexer();
-            } while (_builder.GetTokenType().IsComment || _builder.GetTokenType().IsWhitespace);
+            } while (!_builder.Eof() && (_builder.GetTokenType().IsComment || _builder.GetTokenType().IsWhitespace));
         }
 
         public override void EnterEveryRule(ParserRuleContext ctx)

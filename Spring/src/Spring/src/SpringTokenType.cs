@@ -2,6 +2,7 @@ using System.Text;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
 using JetBrains.ReSharper.Psi.Parsing;
+using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.Text;
 using JetBrains.Util;
 
@@ -38,7 +39,7 @@ namespace JetBrains.ReSharper.Plugins.Spring
         public override string TokenRepresentation => ToString();
     }
 
-    class SpringToken : LeafElementBase
+    class SpringToken : LeafElementBase, ITokenNode
     {
         private readonly string _text;
         private readonly SpringTokenType _springTokenType;
@@ -71,5 +72,6 @@ namespace JetBrains.ReSharper.Plugins.Spring
 
         public override NodeType NodeType => _springTokenType;
         public override PsiLanguageType Language => SpringLanguage.Instance;
+        public TokenNodeType GetTokenType() => _springTokenType;
     }
 }

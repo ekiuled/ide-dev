@@ -40,7 +40,6 @@ namespace JetBrains.ReSharper.Plugins.Spring
                 parser.AddParseListener(new SpringParserListener(builder));
                 parser.AddErrorListener(new SpringErrorListener(builder));
                 parser.program();
-                
 
                 builder.Done(fileMark, SpringFileNodeType.Instance, null);
                 return (IFile) builder.BuildTree();
