@@ -50,6 +50,12 @@ public interface IPascalParserVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitStatement([NotNull] PascalParser.StatementContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="PascalParser.body"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitBody([NotNull] PascalParser.BodyContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="PascalParser.simpleStatement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

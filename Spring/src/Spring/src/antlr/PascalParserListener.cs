@@ -61,6 +61,16 @@ public interface IPascalParserListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitStatement([NotNull] PascalParser.StatementContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="PascalParser.body"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterBody([NotNull] PascalParser.BodyContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="PascalParser.body"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitBody([NotNull] PascalParser.BodyContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="PascalParser.simpleStatement"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

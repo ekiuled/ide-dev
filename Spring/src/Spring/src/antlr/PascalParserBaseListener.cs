@@ -72,6 +72,18 @@ public partial class PascalParserBaseListener : IPascalParserListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitStatement([NotNull] PascalParser.StatementContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="PascalParser.body"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterBody([NotNull] PascalParser.BodyContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="PascalParser.body"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitBody([NotNull] PascalParser.BodyContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="PascalParser.simpleStatement"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>

@@ -38,7 +38,7 @@ UnsignedInteger: DigitSequence
 UnsignedReal: DigitSequence (Dot DigitSequence)? ScaleFactor?;
 fragment ScaleFactor: E Sign? DigitSequence;  
 
-Plus: '+';
+fragment Plus: '+';
 fragment Minus: '-';
 fragment Dollar: '$';
 fragment Ampersand: '&';
@@ -81,7 +81,6 @@ Comma: ',';
 Dots: '..';
 At: '@';
 
-Assignment: Assign | Plus | MinusAssign | MultAssign | DivAssign;
 Assign: ':=';
 PlusAssign: '+=';
 MinusAssign: '-=';
