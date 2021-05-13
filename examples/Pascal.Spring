@@ -1,0 +1,13 @@
+{
+    lol s
+}
+
+begin
+    if x = 2 then
+        println('Hey')    
+    else 
+        println('Not hey');
+    with x, y do
+        println(x);
+        println(y)
+end

@@ -1,0 +1,11 @@
+begin
+    repeat
+        read(question);
+        case question of
+        'Answer to the Ultimate Question of Life, The Universe, and Everything':
+            println(42);
+        otherwise
+            println('idk');
+        end
+    until false
+end
